@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, // Changed from BrowserRouter
   Routes,
   Route,
   Navigate,
@@ -10,7 +10,6 @@ import { ThemeProvider } from "./contexts/theme-context";
 import Loading from "./components/Loading";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { HelmetProvider } from "react-helmet-async";
 
 // Lazy-loaded pages for portfolio website
@@ -32,6 +31,8 @@ function App() {
           }
         >
           <Router>
+            {" "}
+            {/* Now using HashRouter */}
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
