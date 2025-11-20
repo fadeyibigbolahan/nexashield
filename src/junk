@@ -1,0 +1,304 @@
+import React from "react";
+import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { ThemeProvider } from "./contexts/theme-context";
+import Layout from "./pages/layout";
+import OrgLayout from "./pages/OrgLayout";
+import Loading from "./components/Loading";
+import PrivateRoute from "./components/PrivateRoute";
+import useAuthCheck from "./hooks/useAuthCheck";
+import PaddleRedirectHandler from "./components/PaddleRedirectHandler";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AIChatBot from "./components/AIChatBot";
+import CreateJobPage from "./pages/CreateJobPage";
+
+// Lazy-loaded pages (dynamically imported for better performance)
+const DashboardPage = lazy(() => import("./pages/DashboardPage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const SigninPage = lazy(() => import("./pages/SigninPage"));
+const SignupPage = lazy(() => import("./pages/SignupPage"));
+const VerificationPage = lazy(() => import("./pages/VerificationPage"));
+const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
+const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
+const CreateOrganizationPage = lazy(
+  () => import("./pages/CreateOrganizationPage")
+);
+const JoinOrganizationPage = lazy(() => import("./pages/JoinOrganizationPage"));
+const MyMembershipPage = lazy(() => import("./pages/MyMembershipPage"));
+const MemberJobBoardPage = lazy(() => import("./pages/MemberJobBoardPage"));
+const EmailInboxPage = lazy(() => import("./pages/EmailInboxPage"));
+const ProfileSettingsPage = lazy(() => import("./pages/ProfileSettingsPage"));
+const HelpSupportPage = lazy(() => import("./pages/HelpSupportPage"));
+const MyOrganizationPage = lazy(() => import("./pages/MyOrganizationPage"));
+const CreateEventPage = lazy(() => import("./pages/CreateEventPage"));
+const AllEventsPage = lazy(() => import("./pages/AllEventsPage"));
+const BookedEventsPage = lazy(() => import("./pages/BookedEventsPage"));
+const EventDetailsPage = lazy(() => import("./pages/EventDetailsPage"));
+const EditOrganizationPage = lazy(() => import("./pages/EditOrganizationPage"));
+const OrganizationDashboardPage = lazy(
+  () => import("./pages/OrganizationDashboardPage")
+);
+const TransactionPage = lazy(() => import("./pages/TransactionPage"));
+const ResourceDashboardPage = lazy(
+  () => import("./pages/ResourceDashboardPage")
+);
+const ResourcePage = lazy(() => import("./pages/ResourcePage"));
+const PlansPage = lazy(() => import("./pages/PlansPage"));
+const FeaturesPage = lazy(() => import("./pages/FeaturesPage"));
+const APIKeyPage = lazy(() => import("./pages/APIKeyPage"));
+const OrganizationSettingsPage = lazy(
+  () => import("./pages/OrganizationSettingsPage")
+);
+const AdminAndOrganizationPage = lazy(
+  () => import("./pages/AdminAndOrganizationPage")
+);
+const EventAndSchedulingPage = lazy(
+  () => import("./pages/EventAndSchedulingPage")
+);
+const FinanceAndPaymentPage = lazy(
+  () => import("./pages/FinanceAndPaymentPage")
+);
+const BusinessAddonsPage = lazy(() => import("./pages/BusinessAddonsPage"));
+const ActivityFeedPage = lazy(() => import("./pages/ActivityFeedPage"));
+const EventSchedulingOrgsPage = lazy(
+  () => import("./pages/EventSchedulingOrgsPage")
+);
+const GroupManagementPage = lazy(() => import("./pages/GroupManagementPage"));
+const CompanyPage = lazy(() => import("./pages/CompanyPage"));
+const ForAssociationsPage = lazy(() => import("./pages/ForAssociationsPage"));
+const ForChambersPage = lazy(() => import("./pages/ForChambersPage"));
+const ForNonProfitsPage = lazy(() => import("./pages/ForNonProfitsPage"));
+const ForEducationPage = lazy(() => import("./pages/ForEducationPage"));
+const ForProfessionalNetworksPage = lazy(
+  () => import("./pages/ForProfessionalNetworksPage")
+);
+const ForSubscriptionBusinessesPage = lazy(
+  () => import("./pages/ForSubscriptionBusinessesPage")
+);
+const ForFitnessAndWellnessPage = lazy(
+  () => import("./pages/ForFitnessAndWellnessPage")
+);
+const BlogAndInsightsPage = lazy(() => import("./pages/BlogAndInsightsPage"));
+const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
+const WaitingListFormPage = lazy(() => import("./pages/WaitingListFormPage"));
+const MembershipSubscriptionPage = lazy(
+  () => import("./pages/MembershipSubscriptionPage")
+);
+const TermsAndConditionsPage = lazy(
+  () => import("./pages/TermsAndConditionsPage")
+);
+const WalletSuccessPage = lazy(() => import("./pages/WalletSuccessPage"));
+const WalletCancelPage = lazy(() => import("./pages/WalletCancelPage"));
+const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
+const RefundPolicyPage = lazy(() => import("./pages/RefundPolicyPage"));
+const ManageMembersPage = lazy(() => import("./pages/ManageMembersPage"));
+const ManagedEventsPage = lazy(() => import("./pages/ManageEventsPage"));
+const ManageJobPage = lazy(() => import("./pages/ManageJobPage"));
+const JobApplicationPage = lazy(() => import("./pages/JobApplicationPage"));
+const WithdrawalPage = lazy(() => import("./pages/WithdrawalPage"));
+const InvoiceManagementPage = lazy(
+  () => import("./pages/InvoiceManagementPage")
+);
+const FinanceAndPaymentSubscriptionPage = lazy(
+  () => import("./pages/FinanceAndPaymentSubscriptionPage")
+);
+
+function App() {
+  useAuthCheck(); // Automatically logout when token expires
+
+  const router = createHashRouter(
+    [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Layout />
+          </PrivateRoute>
+        ),
+        children: [
+          { index: true, element: <Navigate to="overview" replace /> },
+          {
+            path: "admin-organization",
+            element: <MyOrganizationPage />,
+          },
+          {
+            path: "event-scheduling-orgs",
+            element: <EventSchedulingOrgsPage />,
+          },
+          {
+            path: "finance-payment",
+            element: <FinanceAndPaymentSubscriptionPage />,
+          },
+          // { path: "overview", element: <DashboardPage /> },
+          { path: "membership", element: <MyMembershipPage /> },
+          { path: "create-organization", element: <CreateOrganizationPage /> },
+          { path: "resources", element: <ResourcePage /> },
+          { path: "join-organization", element: <JoinOrganizationPage /> },
+          { path: "jobs", element: <MemberJobBoardPage /> },
+          { path: ":orgId/:jobId/apply-job", element: <JobApplicationPage /> },
+          { path: "inbox", element: <EmailInboxPage /> },
+          { path: "profile-settings", element: <ProfileSettingsPage /> },
+          { path: "all-events", element: <AllEventsPage /> },
+          { path: "booked-events", element: <BookedEventsPage /> },
+          {
+            path: "all-events/event-details/:eventId",
+            element: <EventDetailsPage />,
+          },
+          { path: "transactions", element: <TransactionPage /> },
+          { path: "invoices", element: <InvoiceManagementPage /> },
+          {
+            path: "membership-subscription",
+            element: <MembershipSubscriptionPage />,
+          },
+          { path: "help-support", element: <HelpSupportPage /> },
+          { path: "activity-feed", element: <ActivityFeedPage /> },
+
+          // Organization-specific routes that use OrgLayout
+          {
+            path: "organization/*",
+            element: (
+              <PrivateRoute>
+                <OrgLayout />
+              </PrivateRoute>
+            ),
+            children: [
+              { index: true, element: <Navigate to="../membership" replace /> },
+              {
+                path: ":orgId/dashboard",
+                element: <OrganizationDashboardPage />,
+              },
+              {
+                path: ":orgId/members",
+                element: <ManageMembersPage />,
+              },
+              {
+                path: ":orgId/events",
+                element: <ManagedEventsPage />,
+              },
+              {
+                path: ":orgId/resources",
+                element: <ResourceDashboardPage />,
+              },
+              {
+                path: ":orgId/jobs",
+                element: <ManageJobPage />,
+              },
+              {
+                path: ":orgId/jobs/create",
+                element: <CreateJobPage />,
+              },
+              {
+                path: ":orgId/settings",
+                element: <OrganizationSettingsPage />,
+              },
+              {
+                path: ":orgId/api-keys",
+                element: <APIKeyPage />,
+              },
+              {
+                path: ":orgId/groups",
+                element: <GroupManagementPage />,
+              },
+              {
+                path: ":orgId/withdrawal",
+                element: <WithdrawalPage />,
+              },
+              {
+                path: ":orgId/create-event/:groupId",
+                element: <CreateEventPage />,
+              },
+              {
+                path: ":orgId/edit",
+                element: <EditOrganizationPage />,
+              },
+            ],
+          },
+        ],
+      },
+      { path: "/signin", element: <SigninPage /> },
+      { path: "/signup", element: <SignupPage /> },
+      { path: "/terms-and-conditions", element: <TermsAndConditionsPage /> },
+      { path: "/privacy-policy", element: <PrivacyPolicyPage /> },
+      { path: "/refund-policy", element: <RefundPolicyPage /> },
+      { path: "/verification", element: <VerificationPage /> },
+      { path: "/reset-password/:token", element: <ResetPasswordPage /> },
+      { path: "/forgot-password", element: <ForgotPasswordPage /> },
+      { path: "/features", element: <FeaturesPage /> },
+      { path: "/admin-organization", element: <AdminAndOrganizationPage /> },
+      { path: "/event-scheduling", element: <EventAndSchedulingPage /> },
+      { path: "/finance-payment", element: <FinanceAndPaymentPage /> },
+      { path: "/business-addons", element: <BusinessAddonsPage /> },
+      { path: "/company", element: <CompanyPage /> },
+      { path: "/solutions/associations", element: <ForAssociationsPage /> },
+      { path: "/solutions/chambers", element: <ForChambersPage /> },
+      { path: "/solutions/nonprofits", element: <ForNonProfitsPage /> },
+      { path: "/solutions/education", element: <ForEducationPage /> },
+      {
+        path: "/solutions/professional-networks",
+        element: <ForProfessionalNetworksPage />,
+      },
+      {
+        path: "/solutions/subscription-businesses",
+        element: <ForSubscriptionBusinessesPage />,
+      },
+      {
+        path: "/solutions/fitness-wellness",
+        element: <ForFitnessAndWellnessPage />,
+      },
+      {
+        path: "/blog",
+        element: <BlogAndInsightsPage />,
+      },
+      {
+        path: "/case-studies",
+        element: <CaseStudiesPage />,
+      },
+      {
+        path: "/waiting-list",
+        element: <WaitingListFormPage />,
+      },
+      // ADDED WALLET ROUTES
+      {
+        path: "/wallet/success",
+        element: <WalletSuccessPage />,
+      },
+      {
+        path: "/wallet/cancel",
+        element: <WalletCancelPage />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" replace />,
+      },
+    ],
+    {
+      basename: "/",
+    }
+  );
+
+  return (
+    <ThemeProvider storageKey="theme">
+      <Suspense
+        fallback={
+          <div className="loading-spinner">
+            <Loading />
+          </div>
+        }
+      >
+        <RouterProvider router={router}>
+          <PaddleRedirectHandler />
+        </RouterProvider>
+      </Suspense>
+      <ToastContainer />
+      <AIChatBot />
+    </ThemeProvider>
+  );
+}
+
+export default App;

@@ -1,0 +1,47 @@
+import { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
+const initialState = {
+  theme: "light",
+  setTheme: () => null,
+};
+
+export const ThemeProviderContext = createContext(initialState);
+
+export function ThemeProvider({
+  children,
+  defaultTheme = "light",
+  storageKey = "vite-ui-theme",
+  ...props
+}) {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem(storageKey) || defaultTheme
+  );
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+
+    root.classList.remove("light", "dark");
+    root.classList.add("light");
+  }, [theme]);
+
+  const value = {
+    theme,
+    setTheme: (theme) => {
+      localStorage.setItem(storageKey, theme);
+      setTheme(theme);
+    },
+  };
+
+  return (
+    <ThemeProviderContext.Provider {...props} value={value}>
+      {children}
+    </ThemeProviderContext.Provider>
+  );
+}
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node,
+  defaultTheme: PropTypes.string,
+  storageKey: PropTypes.string,
+};

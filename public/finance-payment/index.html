@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance & Payment Solutions - Fagis</title>
+    <meta
+      name="description"
+      content="Organization wallet management, payment processing, automated billing, and financial reporting for membership organizations and business networks."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Finance & Payment Solutions - Fagis" />
+    <meta
+      property="og:description"
+      content="Organization wallet management, payment processing, and automated billing for membership organizations"
+    />
+    <meta
+      property="og:image"
+      content="https://www.fagis.io/images/og-finance-payment.png"
+    />
+    <meta property="og:url" content="https://www.fagis.io/finance-payment" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Finance & Payment Solutions - Fagis" />
+    <meta
+      name="twitter:description"
+      content="Organization wallet management and payment processing"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.fagis.io/images/og-finance-payment.png"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Finance & Payment Management",
+        "description": "Organization wallet management, payment processing, automated billing, and financial reporting for membership organizations and business networks.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Fagis"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": 3,
+          "lowPrice": "5",
+          "highPrice": "30",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6C6TJH21V2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-6C6TJH21V2");
+    </script>
+
+    <style>
+      /* Basic styling - you can enhance this with your actual CSS */
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #f8fafc, white, #dbeafe);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .hero {
+        padding: 100px 0 60px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #003366;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+      .btn-primary {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        color: white;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin: 0 10px;
+      }
+      .btn-secondary {
+        border: 2px solid #d1d5db;
+        color: #374151;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin: 0 10px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .pricing-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e5e7eb;
+      }
+      .pricing-card.popular {
+        border-color: #2563eb;
+        transform: scale(1.05);
+        background: linear-gradient(to bottom, white, #dbeafe);
+      }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .faq-item {
+        background: white;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .cta-section {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+      .popular-badge {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Navigation -->
+      <div style="padding: 20px; text-align: center; background: #f8fafc">
+        <a
+          href="/"
+          style="
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            font-size: 1.5rem;
+          "
+          >Fagis</a
+        >
+        <nav style="margin-top: 10px">
+          <a
+            href="/features/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >Features</a
+          >
+          <a
+            href="/solutions/associations/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >For Associations</a
+          >
+          <a
+            href="/admin-organization/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >Admin Tools</a
+          >
+          <a
+            href="/finance-payment/"
+            style="
+              margin: 0 15px;
+              text-decoration: none;
+              color: #2563eb;
+              font-weight: bold;
+            "
+            >Finance & Payment</a
+          >
+        </nav>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <h1>
+            Organization Wallet &
+            <span
+              style="
+                background: linear-gradient(to right, #2563eb, #7c3aed);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+              >Payment Management</span
+            >
+          </h1>
+          <p>
+            Streamline financial operations across your organization network
+            with multi-wallet management, automated billing, group payments, and
+            comprehensive financial reporting.
+          </p>
+          <div>
+            <a href="#pricing" class="btn-primary">Get Started</a>
+            <a href="#features" class="btn-secondary">Schedule Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" style="background: white; padding: 80px 0">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Comprehensive Organization Financial Management
+          </h2>
+          <p
+            style="
+              text-align: center;
+              font-size: 1.125rem;
+              color: #666;
+              max-width: 600px;
+              margin: 0 auto 60px;
+            "
+          >
+            Everything you need to manage wallets, process payments, automate
+            billing, and gain financial insights across your organization
+            network.
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>Organization Wallet System</h3>
+              <p>
+                Each organization gets a dedicated wallet with real-time balance
+                tracking and management for all members.
+              </p>
+              <ul>
+                <li>Multi-organization wallet support</li>
+                <li>Real-time balance synchronization</li>
+                <li>Member wallet allocation</li>
+                <li>Cross-organization transfers</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Group Organization Payments</h3>
+              <p>
+                Process payments across multiple organizations with bulk payment
+                capabilities and centralized management.
+              </p>
+              <ul>
+                <li>Bulk payment processing</li>
+                <li>Multi-org payment scheduling</li>
+                <li>Payment grouping by organization type</li>
+                <li>Centralized payment dashboard</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Automated Invoicing & Billing</h3>
+              <p>
+                Generate, send, and track invoices automatically with
+                customizable billing cycles and payment reminders.
+              </p>
+              <ul>
+                <li>Recurring invoice automation</li>
+                <li>Custom billing schedules</li>
+                <li>Payment reminder system</li>
+                <li>Invoice tracking and status updates</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Billing Automation</h3>
+              <p>
+                Set up automated billing workflows with flexible payment options
+                and grace period management.
+              </p>
+              <ul>
+                <li>Auto-debit from organization wallets</li>
+                <li>Flexible billing cycles</li>
+                <li>Grace period configuration</li>
+                <li>Failed payment retry system</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Admin Financial Controls</h3>
+              <p>
+                Comprehensive financial management with refund processing, bonus
+                allocation, and internal fund transfers.
+              </p>
+              <ul>
+                <li>Admin-initiated refunds and bonuses</li>
+                <li>Inter-organization fund transfers</li>
+                <li>Approval workflow management</li>
+                <li>Transaction reversal capabilities</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Financial Reporting & Analytics</h3>
+              <p>
+                Gain deep insights with comprehensive financial reports, revenue
+                tracking, and performance analytics.
+              </p>
+              <ul>
+                <li>Organization-level financial reports</li>
+                <li>Revenue distribution analysis</li>
+                <li>Exportable financial statements</li>
+                <li>Real-time performance dashboards</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Feature Showcase -->
+          <div
+            style="
+              background: white;
+              padding: 40px;
+              border-radius: 16px;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+              margin-top: 40px;
+            "
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+              "
+            >
+              <div>
+                <h3 style="font-size: 1.75rem; margin-bottom: 20px">
+                  Multi-Organization Financial Dashboard
+                </h3>
+                <p style="color: #666; margin-bottom: 30px; line-height: 1.6">
+                  Gain complete visibility into your entire organization
+                  network's financial health. Track wallet balances, monitor
+                  transactions, manage automated billing, and generate
+                  comprehensive reports across all organizations from a single
+                  dashboard.
+                </p>
+                <div style="display: grid; gap: 15px">
+                  <div style="display: flex; align-items: center; gap: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background: #dbeafe;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #2563eb;
+                      "
+                    >
+                      🏢
+                    </div>
+                    <span>Organization-level financial overview</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background: #dcfce7;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #16a34a;
+                      "
+                    >
+                      📊
+                    </div>
+                    <span>Real-time revenue and expense tracking</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px">
+                    <div
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        background: #f3e8ff;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #9333ea;
+                      "
+                    >
+                      🎯
+                    </div>
+                    <span>Automated reconciliation and reporting</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  background: #1f2937;
+                  padding: 30px;
+                  border-radius: 12px;
+                  color: white;
+                "
+              >
+                <div style="display: flex; gap: 8px; margin-bottom: 20px">
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #ef4444;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #eab308;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      background: #22c55e;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                </div>
+                <h4 style="margin-bottom: 15px; color: #d1d5db">
+                  Network Overview
+                </h4>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                    text-align: center;
+                  "
+                >
+                  <div>
+                    <div
+                      style="
+                        background: #2563eb;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 10px;
+                        margin: 0 auto 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      🏢
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: bold">24</div>
+                    <div style="font-size: 0.875rem; color: #9ca3af">
+                      Organizations
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        background: #16a34a;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 10px;
+                        margin: 0 auto 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      💰
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: bold">156</div>
+                    <div style="font-size: 0.875rem; color: #9ca3af">
+                      Active Wallets
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    margin-top: 20px;
+                    padding: 15px;
+                    background: #374151;
+                    border-radius: 8px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <span style="font-size: 0.875rem; color: #9ca3af"
+                      >Monthly Processing</span
+                    >
+                    <span style="font-size: 0.875rem; color: #22c55e"
+                      >$89.4K</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      width: 100%;
+                      height: 6px;
+                      background: #4b5563;
+                      border-radius: 3px;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 75%;
+                        height: 6px;
+                        background: #22c55e;
+                        border-radius: 3px;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing" style="padding: 80px 0; background: #f8fafc">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Flexible Plans for Every Organization Size
+          </h2>
+          <p
+            style="
+              text-align: center;
+              font-size: 1.125rem;
+              color: #666;
+              margin-bottom: 40px;
+            "
+          >
+            Choose the plan that fits your organization network's financial
+            management needs
+          </p>
+
+          <div class="pricing-grid">
+            <!-- Basic Plan -->
+            <div class="pricing-card">
+              <h3>Basic</h3>
+              <p>
+                Perfect for small organizations starting with wallet management
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $5<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>Unlimited organization wallets</li>
+                <li>Member wallet support</li>
+                <li>Manual payment processing</li>
+                <li>Standard invoicing</li>
+                <li>Basic financial reports</li>
+                <li>Email support</li>
+                <li>50 transactions/month</li>
+                <li>1 payment gateway</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="display: block; text-align: center; margin-top: 20px"
+                >Get Started</a
+              >
+            </div>
+
+            <!-- Pro Plan (Popular) -->
+            <div class="pricing-card popular">
+              <div class="popular-badge">⭐ Most Popular</div>
+              <h3>Pro</h3>
+              <p>
+                For growing organizations needing advanced payment automation
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $15<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>Unlimited organization wallets</li>
+                <li>Advanced wallet management</li>
+                <li>Automated billing</li>
+                <li>Multi-org payment processing</li>
+                <li>Custom invoicing</li>
+                <li>Advanced financial reporting</li>
+                <li>Priority support</li>
+                <li>2 payment gateways</li>
+                <li>500 transactions/month</li>
+                <li>Bulk payments</li>
+                <li>Payment scheduling</li>
+                <li>Basic audit trail</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="
+                  display: block;
+                  text-align: center;
+                  margin-top: 20px;
+                  background: white;
+                  color: #2563eb;
+                "
+                >Get Started</a
+              >
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+              <h3>Enterprise</h3>
+              <p>Complete financial management for organization networks</p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $30<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>Unlimited organization wallets</li>
+                <li>Unlimited member wallets</li>
+                <li>Full billing automation</li>
+                <li>Multi-gateway payment processing</li>
+                <li>Custom financial workflows</li>
+                <li>White-labeled invoicing</li>
+                <li>Dedicated account manager</li>
+                <li>API access</li>
+                <li>Unlimited payment gateways</li>
+                <li>Unlimited transactions</li>
+                <li>Advanced financial controls</li>
+                <li>Comprehensive audit trail</li>
+                <li>Real-time analytics</li>
+                <li>Cross-organization transfers</li>
+                <li>Tax management</li>
+                <li>Refund management</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="display: block; text-align: center; margin-top: 20px"
+                >Get Started</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section style="padding: 80px 0; background: white">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Trusted by Organization Networks Worldwide
+          </h2>
+
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <p>
+                "Managing payments across our 50+ member organizations used to
+                be chaotic. Now with organization wallets and automated billing,
+                we save 20+ hours weekly."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  SJ
+                </div>
+                <div>
+                  <div style="font-weight: bold">Sarah Johnson</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Finance Director
+                  </div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    TechGrowth Network
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p>
+                "The multi-organization payment processing has revolutionized
+                how we handle cross-border transactions. Everything is seamless
+                and transparent now."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  MC
+                </div>
+                <div>
+                  <div style="font-weight: bold">Michael Chen</div>
+                  <div style="color: #666; font-size: 0.875rem">COO</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Global Edu Alliance
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p>
+                "From automated invoicing to real-time wallet tracking, this
+                platform has brought enterprise-level financial management to
+                our organization network."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  LR
+                </div>
+                <div>
+                  <div style="font-weight: bold">Lisa Rodriguez</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Financial Controller
+                  </div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Healthcare Partners Network
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section style="padding: 80px 0; background: #f8fafc">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Frequently Asked Questions
+          </h2>
+
+          <div style="max-width: 800px; margin: 0 auto">
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                Is there a limit to how many organizations I can manage?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                No! All plans now include unlimited organization wallets, so you
+                can manage as many organizations as you need without
+                restrictions.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                How do organization wallets work with member wallets?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                Each organization has a master wallet, and each member within
+                the organization has their own sub-wallet. Funds can be
+                allocated and managed between organization and member wallets
+                seamlessly.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                Can we process payments across multiple organizations?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                Yes, our platform supports bulk payments across multiple
+                organizations with centralized tracking and reporting. You can
+                group organizations and process payments in batches.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                What payment gateways are supported?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                We support Stripe, Paystack, Flutterwave, PayPal, and other
+                major payment providers. Enterprise plans can integrate custom
+                payment solutions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2 style="font-size: 2.5rem; margin-bottom: 20px">
+            Ready to Transform Your Organization's Financial Management?
+          </h2>
+          <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9">
+            Join organizations worldwide that are streamlining payments,
+            wallets, and financial operations with our platform.
+          </p>
+          <div>
+            <a
+              href="/signup/"
+              class="btn-primary"
+              style="background: white; color: #2563eb; margin: 0 10px"
+              >Start Free Trial</a
+            >
+            <a
+              href="/contact/"
+              class="btn-secondary"
+              style="border-color: white; color: white; margin: 0 10px"
+              >Request Demo</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        style="
+          background: #1f2937;
+          color: white;
+          padding: 40px 0;
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <p>&copy; 2025 Fagis. All rights reserved.</p>
+          <div style="margin-top: 20px">
+            <a
+              href="/privacy-policy/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Privacy Policy</a
+            >
+            <a
+              href="/terms-and-conditions/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Terms</a
+            >
+            <a
+              href="/contact/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Load React app -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
