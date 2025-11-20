@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin & Organization Tools - Fagis</title>
+    <meta
+      name="description"
+      content="Powerful admin dashboard and organization management tools with task management, tagging, member grouping, and bulk operations for membership platforms and teams."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Admin & Organization Tools - Fagis" />
+    <meta
+      property="og:description"
+      content="Powerful admin dashboard and organization management tools for membership platforms"
+    />
+    <meta
+      property="og:image"
+      content="https://www.fagis.io/images/og-image.png"
+    />
+    <meta property="og:url" content="https://www.fagis.io/admin-organization" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Admin & Organization Tools - Fagis" />
+    <meta
+      name="twitter:description"
+      content="Powerful admin dashboard and organization management tools"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.fagis.io/images/og-image.png"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Admin & Organization Tools",
+        "description": "Powerful admin dashboard and organization management tools with task management, tagging, member grouping, and bulk operations",
+        "brand": {
+          "@type": "Brand",
+          "name": "Fagis"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": 4,
+          "lowPrice": "0",
+          "highPrice": "30",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6C6TJH21V2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-6C6TJH21V2");
+    </script>
+
+    <style>
+      /* Basic styling - you can enhance this with your actual CSS */
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #f8fafc, white, #dbeafe);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .hero {
+        padding: 100px 0 60px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #003366;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+      .btn-primary {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        color: white;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin: 0 10px;
+      }
+      .btn-secondary {
+        border: 2px solid #d1d5db;
+        color: #374151;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin: 0 10px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .pricing-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e5e7eb;
+      }
+      .pricing-card.popular {
+        border-color: #2563eb;
+        transform: scale(1.05);
+        background: linear-gradient(to bottom, white, #dbeafe);
+      }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 60px 0;
+      }
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .faq-item {
+        background: white;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .cta-section {
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Navigation will be handled by React -->
+      <div style="padding: 20px; text-align: center; background: #f8fafc">
+        <a
+          href="/"
+          style="
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            font-size: 1.5rem;
+          "
+          >Fagis</a
+        >
+        <nav style="margin-top: 10px">
+          <a
+            href="/features/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >Features</a
+          >
+          <a
+            href="/solutions/associations/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >For Associations</a
+          >
+          <a
+            href="/solutions/chambers/"
+            style="margin: 0 15px; text-decoration: none; color: #666"
+            >For Chambers</a
+          >
+          <a
+            href="/admin-organization/"
+            style="
+              margin: 0 15px;
+              text-decoration: none;
+              color: #2563eb;
+              font-weight: bold;
+            "
+            >Admin Tools</a
+          >
+        </nav>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <h1>
+            Unified Admin & Organization
+            <span
+              style="
+                background: linear-gradient(to right, #2563eb, #7c3aed);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+              >Management</span
+            >
+          </h1>
+          <p>
+            Empower your organization with scalable, secure tools to manage
+            members, teams, roles, tasks, and access. Centralize control,
+            automate workflows, and gain full visibility.
+          </p>
+          <div>
+            <a href="#pricing" class="btn-primary">Get Started</a>
+            <a href="#features" class="btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" style="background: white; padding: 80px 0">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Everything You Need to Scale
+          </h2>
+          <p
+            style="
+              text-align: center;
+              font-size: 1.125rem;
+              color: #666;
+              max-width: 600px;
+              margin: 0 auto 60px;
+            "
+          >
+            Comprehensive tools to manage organizations, users, tasks, and
+            operations at any scale
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>Organization Setup & Control</h3>
+              <p>
+                Quickly create, brand, and configure organizations with custom
+                settings.
+              </p>
+              <ul>
+                <li>Multi-org support under one admin</li>
+                <li>Brand customization</li>
+                <li>Access control per organization</li>
+                <li>Onboarding automation</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Roles & Permissions</h3>
+              <p>
+                Assign fine-grained roles and manage what admins, staff, and
+                members can access.
+              </p>
+              <ul>
+                <li>Predefined admin/member roles</li>
+                <li>Custom role creation</li>
+                <li>Permission matrix UI</li>
+                <li>Secure access enforcement</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Task Management</h3>
+              <p>
+                Comprehensive task system with assignments, priorities, and
+                workflow automation.
+              </p>
+              <ul>
+                <li>Task creation and assignment</li>
+                <li>Due date tracking</li>
+                <li>Priority levels</li>
+                <li>Workflow automation</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Tag Management</h3>
+              <p>
+                Organize and categorize content with advanced tagging and
+                filtering capabilities.
+              </p>
+              <ul>
+                <li>Smart tagging system</li>
+                <li>Category management</li>
+                <li>Advanced filtering</li>
+                <li>Auto-tagging rules</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Member Grouping</h3>
+              <p>
+                Create dynamic member groups and manage permissions at scale.
+              </p>
+              <ul>
+                <li>Dynamic group creation</li>
+                <li>Group-based permissions</li>
+                <li>Bulk member management</li>
+                <li>Automated group assignment</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h3>Bulk Operations</h3>
+              <p>
+                Perform mass actions across members, tasks, and content with
+                ease.
+              </p>
+              <ul>
+                <li>Bulk member updates</li>
+                <li>Mass task assignments</li>
+                <li>Batch tagging</li>
+                <li>Role management at scale</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing" style="padding: 80px 0; background: #f8fafc">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Simple, Transparent Pricing
+          </h2>
+          <p
+            style="
+              text-align: center;
+              font-size: 1.125rem;
+              color: #666;
+              margin-bottom: 40px;
+            "
+          >
+            Choose the plan that scales with your organization platform
+          </p>
+
+          <div class="pricing-grid">
+            <!-- Free Plan -->
+            <div class="pricing-card">
+              <h3>Free</h3>
+              <p>
+                Basic access to create 1 organization with default settings.
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $0<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>1 organization</li>
+                <li>Basic admin dashboard</li>
+                <li>Email support</li>
+                <li>Default settings</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-secondary"
+                style="display: block; text-align: center; margin-top: 20px"
+                >Get Started</a
+              >
+            </div>
+
+            <!-- Basic Plan -->
+            <div class="pricing-card">
+              <h3>Basic</h3>
+              <p>
+                Allows up to 3 organizations with basic task, tag, and member
+                management.
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $5<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>3 organizations</li>
+                <li>Custom branding</li>
+                <li>Task management</li>
+                <li>Tag management</li>
+                <li>Member grouping</li>
+                <li>Bulk member updates</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="display: block; text-align: center; margin-top: 20px"
+                >Get Started</a
+              >
+            </div>
+
+            <!-- Pro Plan (Popular) -->
+            <div class="pricing-card popular">
+              <div
+                style="
+                  background: linear-gradient(to right, #2563eb, #7c3aed);
+                  color: white;
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin-bottom: 15px;
+                "
+              >
+                Most Popular
+              </div>
+              <h3>Pro</h3>
+              <p>
+                Advanced admin features with enhanced task, tag, and member
+                management capabilities.
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $15<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>10 organizations</li>
+                <li>Sub-admin support</li>
+                <li>Document upload</li>
+                <li>Advanced task management</li>
+                <li>Smart tagging</li>
+                <li>Advanced member grouping</li>
+                <li>Bulk operations</li>
+                <li>Priority support</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="
+                  display: block;
+                  text-align: center;
+                  margin-top: 20px;
+                  background: white;
+                  color: #2563eb;
+                "
+                >Get Started</a
+              >
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+              <h3>Enterprise</h3>
+              <p>
+                Full control with unlimited orgs, advanced task systems, and
+                enterprise member management.
+              </p>
+              <div style="font-size: 3rem; font-weight: bold; color: #1f2937">
+                $30<span style="font-size: 1rem; color: #6b7280">/mo</span>
+              </div>
+              <ul>
+                <li>Unlimited organizations</li>
+                <li>Audit logs</li>
+                <li>Advanced roles</li>
+                <li>API access</li>
+                <li>Unlimited tasks & tags</li>
+                <li>AI-powered features</li>
+                <li>24/7 support</li>
+                <li>White-label options</li>
+              </ul>
+              <a
+                href="/signup/"
+                class="btn-primary"
+                style="display: block; text-align: center; margin-top: 20px"
+                >Get Started</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section style="padding: 80px 0; background: white">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Trusted by Organization Leaders
+          </h2>
+
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <p>
+                "The task management and bulk operations have transformed how we
+                manage our 15+ mobility partners. The unified dashboard saves us
+                hours every day."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  SC
+                </div>
+                <div>
+                  <div style="font-weight: bold">Sarah Chen</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Director of Transportation
+                  </div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Metro City Authority
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p>
+                "The member grouping and tagging features make it incredibly
+                easy to organize and communicate with different user segments
+                across our 20 organizations."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  MR
+                </div>
+                <div>
+                  <div style="font-weight: bold">Marcus Rodriguez</div>
+                  <div style="color: #666; font-size: 0.875rem">CEO</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Urban Mobility Solutions
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p>
+                "The enterprise features give us the control and insights we
+                need for a city-wide mobility transformation. Bulk operations
+                are a game-changer."
+              </p>
+              <div style="display: flex; align-items: center; margin-top: 20px">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: linear-gradient(to right, #2563eb, #7c3aed);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 15px;
+                  "
+                >
+                  LP
+                </div>
+                <div>
+                  <div style="font-weight: bold">Dr. Lisa Park</div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Smart City Coordinator
+                  </div>
+                  <div style="color: #666; font-size: 0.875rem">
+                    Tech Forward City
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section style="padding: 80px 0; background: #f8fafc">
+        <div class="container">
+          <h2
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 20px"
+          >
+            Frequently Asked Questions
+          </h2>
+
+          <div style="max-width: 800px; margin: 0 auto">
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                Can we manage multiple branches or departments?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                Yes. You can create multiple organizations and manage them from
+                a single admin dashboard with role-based access, task
+                management, and member grouping.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                How does the task management system work?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                Our task system allows you to create, assign, and track tasks
+                with priorities, due dates, and dependencies. Advanced plans
+                include automation and workflow management.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div style="padding: 20px; font-weight: bold">
+                Can I perform bulk operations on members?
+              </div>
+              <div style="padding: 0 20px 20px; color: #666">
+                Absolutely. You can perform bulk updates, assignments, tagging,
+                and role management across multiple members or groups
+                simultaneously.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2 style="font-size: 2.5rem; margin-bottom: 20px">
+            Ready to Transform Your Organization Platform?
+          </h2>
+          <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9">
+            Join organizations already using our platform with advanced task
+            management and bulk operations
+          </p>
+          <div>
+            <a
+              href="/signup/"
+              class="btn-primary"
+              style="background: white; color: #2563eb; margin: 0 10px"
+              >Get Started</a
+            >
+            <a
+              href="/contact/"
+              class="btn-secondary"
+              style="border-color: white; color: white; margin: 0 10px"
+              >Contact Sales</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        style="
+          background: #1f2937;
+          color: white;
+          padding: 40px 0;
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <p>&copy; 2025 Fagis. All rights reserved.</p>
+          <div style="margin-top: 20px">
+            <a
+              href="/privacy-policy/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Privacy Policy</a
+            >
+            <a
+              href="/terms-and-conditions/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Terms</a
+            >
+            <a
+              href="/contact/"
+              style="color: #9ca3af; margin: 0 15px; text-decoration: none"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Load React app -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
