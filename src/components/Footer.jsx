@@ -104,7 +104,7 @@ const Footer = () => {
             <div className="space-y-4 text-gray-400">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5" />
-                <span>hello@Nexashieldtech.com</span>
+                <span>info@nexashield.net</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5" />

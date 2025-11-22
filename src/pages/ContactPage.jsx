@@ -143,8 +143,8 @@ const ContactPage = () => {
                 icon: <Mail className="w-8 h-8" />,
                 title: "Email Us",
                 subtitle: "24-hour response guarantee",
-                contact: "hello@Nexashieldtech.com",
-                href: "mailto:hello@Nexashieldtech.com",
+                contact: "info@nexashield.net",
+                href: "mailto:info@nexashield.net",
                 gradient: "from-cyan-500 to-blue-600",
               },
               {
